@@ -2,7 +2,7 @@ import React from "react";
 import KeyboardButton from "./KeyboardButton";
 
 export default function() {
-    const [message, setMessage] = React.useState("MESSAGE GOES HERE")
+    const [message, setMessage] = React.useState("TYPE MESSAGE HERE")
     const [capital, setCapital] = React.useState("NO")
 
     const shifted = capital === "YES"
@@ -37,10 +37,9 @@ export default function() {
 
     return (
         <main>
-            {/*<h1>Somnatus Translator</h1>*/}
             <div className="output-container">
-                <p className="encoded-text">{message}</p>
                 <input type="text" className="decoded-text" onChange={inputChanged} value={message} />
+                <p className="encoded-text">{message}</p>
             </div>
             <div className="keyboard-row">
                 {row1}

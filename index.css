@@ -1,0 +1,115 @@
+body {
+    font-family: Inter, sans-serif;
+    background-color:  #0d0a39;
+    color: #ffe8d2;
+    background-image: url("nebula.webp");
+}
+
+@font-face {
+    font-family: 'Somnatus';
+    src: url('./Somnatus-Regular ttf.ttf') format('truetype');
+}
+
+.output-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+p, input {
+    font-size: 4.5em;
+    text-align: center;
+    background: #405fab;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    word-wrap: break-word;
+    color: #ffe8d2;
+    border: 0;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+
+button.shift-active:hover {
+    background-image: linear-gradient(#405fab, #405fab),
+    linear-gradient(to right, #ffbafd, #91ede7);
+}
+
+
+
+input:focus {
+    outline: none!important;
+}
+
+.encoded-text {
+    font-family: Somnatus, sans-serif;
+}
+
+p.encoded-text {
+    font-size: 7em;
+}
+
+p.decoded-text {
+    border: 0;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+}
+
+.keyboard-button {
+    border: 5px solid transparent;
+    border-radius: 0.2em;
+    color: #ffe8d2;
+    width: 9%;
+    height: 7%;
+    min-height: 2.8em;
+    font-size: 5em;
+    background-image: linear-gradient(#736fe5, #736fe5),
+    linear-gradient(to right, #ffbafd, #91ede7);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.keyboard-button .encoded-text {
+    font-size: 1.5em;
+}
+
+.button-text {
+    font-size: 0.5em;
+    font-family: Inter, sans-serif;
+}
+
+
+.keyboard-button.shift-active {
+    background-image: linear-gradient(#6788d6, #6788d6),
+        linear-gradient(to right, #ffbafd, #91ede7);
+}
+
+.keyboard-button:hover {
+    background-image: linear-gradient(#6d56c7, #6d56c7),
+    linear-gradient(to right, #ffbafd, #91ede7);
+}
+
+.keyboard-button:active {
+    background-image: linear-gradient(#481d79, #481d79),
+    linear-gradient(to right, #ffbafd, #91ede7);
+}
+
+.keyboard-button.shift-active:active {
+    background-image: linear-gradient(#1D1F79FF, #1D1F79FF),
+    linear-gradient(to right, #ffbafd, #91ede7);
+}
+
+

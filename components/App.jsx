@@ -10,9 +10,11 @@ export default function() {
     function keyPressed(key) {
         if(key === "←") {
             if(message.length > 0) setMessage(message.slice(0, -1));
-        } else if (key === "❌") {
+        } else if (key === "×") {
             setMessage("");
-        } else if (key === "↑") {
+        } else if(key === "⎵") {
+            setMessage(message + " ");
+         }else if (key === "↑") {
             setCapital("YES");
         }  else if (key === "↓") {
             setCapital("NO");
@@ -36,26 +38,31 @@ export default function() {
     const row3 = "ZXCVBNM".split('').map(letterToButton);
 
     return (
-        <main>
-            <div className="output-container">
-                <input type="text" className="decoded-text" onChange={inputChanged} value={message} />
-                <p className="encoded-text">{message}</p>
-            </div>
-            <div className="keyboard-row">
-                {row1}
-            </div>
-            <div className="keyboard-row">
-                {row2}
-            </div>
-            <div className="keyboard-row">
-                {row3}
-            </div>
-            <div className="keyboard-row">
-                <KeyboardButton letter={shifted ? "↓" : "↑"} shifted={capital === "YES"} onClick={keyPressed}/>
-                <KeyboardButton letter={" "} shifted={shifted} onClick={keyPressed}/>
-                <KeyboardButton letter={"←"} shifted={shifted} onClick={keyPressed}/>
-                <KeyboardButton letter={"❌"} shifted={shifted} onClick={keyPressed}/>
-            </div>
-        </main>
+        <>
+            <main>
+                <div className="output-container">
+                    <input type="text" className="decoded-text" onChange={inputChanged} value={message}/>
+                    <p className="encoded-text">{message}</p>
+                </div>
+                <div className="keyboard-row">
+                    {row1}
+                </div>
+                <div className="keyboard-row">
+                    {row2}
+                </div>
+                <div className="keyboard-row">
+                    {row3}
+                </div>
+                <div className="keyboard-row">
+                    <KeyboardButton letter={shifted ? "↓" : "↑"} shifted={capital === "YES"} onClick={keyPressed}/>
+                    <KeyboardButton letter={"⎵"} shifted={shifted} onClick={keyPressed}/>
+                    <KeyboardButton letter={"←"} shifted={shifted} onClick={keyPressed}/>
+                    <KeyboardButton letter={"×"} shifted={shifted} onClick={keyPressed}/>
+                </div>
+            </main>
+            <footer>
+                Somnatus Translator by <b>Carbon</b> | Somnatus Community Font by <b>ParadoxPanda</b> | Somnatus language design by <b>Furality Creative Team </b>
+            </footer>
+        </>
     )
 }

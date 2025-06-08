@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function KeyboardButton({letter, onClick}) {
+export default function KeyboardButton({letter, shifted, onClick}) {
     let classes = "keyboard-button"
 
-    if (letter === "↑") {
+    if (!shifted) {
         classes += " shift-inactive";
-    }  else if (letter === "↓") {
+    }  else {
         classes += " shift-active";
     }
 

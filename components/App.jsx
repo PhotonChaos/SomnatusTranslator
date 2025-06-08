@@ -5,6 +5,8 @@ export default function() {
     const [message, setMessage] = React.useState("MESSAGE GOES HERE")
     const [capital, setCapital] = React.useState("NO")
 
+    const shifted = capital === "YES"
+
     function keyPressed(key) {
         if(key === "←") {
             if(message.length > 0) setMessage(message.slice(0, -1));
@@ -23,45 +25,15 @@ export default function() {
         setMessage(event.target.value);
     }
 
-    let row1 = []
-    let row2 = []
-    let row3 = []
-
-    if(capital === "YES") {
-        row1 = "QWERTYUIOP".split('').map((letter) => {
-            return (
-                <KeyboardButton letter={letter} onClick={keyPressed}/>
-            )
-        })
-        row2 = "ASDFGHJKL".split('').map((letter) => {
-            return (
-                <KeyboardButton letter={letter}  onClick={keyPressed}/>
-            )
-        })
-        row3 = "ZXCVBNM".split('').map((letter) => {
-            return (
-                <KeyboardButton letter={letter}  onClick={keyPressed}/>
-            )
-        })
-    } else {
-        row1 = "qwertyuiop".split('').map((letter) => {
-            return (
-                <KeyboardButton letter={letter} onClick={keyPressed}/>
-            )
-        })
-        row2 = "asdfghjkl".split('').map((letter) => {
-            return (
-                <KeyboardButton letter={letter}  onClick={keyPressed}/>
-            )
-        })
-        row3 = "zxcvbnm".split('').map((letter) => {
-            return (
-                <KeyboardButton letter={letter}  onClick={keyPressed}/>
-            )
-        })
+    function letterToButton(letter) {
+        return (
+            <KeyboardButton letter={shifted ? letter.toUpperCase() : letter.toLowerCase()} shifted={shifted} onClick={keyPressed}/>
+        )
     }
 
-
+    const row1= "QWERTYUIOP".split('').map(letterToButton);
+    const row2 = "ASDFGHJKL".split('').map(letterToButton);
+    const row3 = "ZXCVBNM".split('').map(letterToButton);
 
     return (
         <main>
@@ -80,10 +52,10 @@ export default function() {
                 {row3}
             </div>
             <div className="keyboard-row">
-                <KeyboardButton letter={capital === "YES" ? "↓" : "↑"} onClick={keyPressed}/>
-                <KeyboardButton letter={" "} onClick={keyPressed}/>
-                <KeyboardButton letter={"←"} onClick={keyPressed}/>
-                <KeyboardButton letter={"❌"} onClick={keyPressed}/>
+                <KeyboardButton letter={shifted ? "↓" : "↑"} shifted={capital === "YES"} onClick={keyPressed}/>
+                <KeyboardButton letter={" "} shifted={shifted} onClick={keyPressed}/>
+                <KeyboardButton letter={"←"} shifted={shifted} onClick={keyPressed}/>
+                <KeyboardButton letter={"❌"} shifted={shifted} onClick={keyPressed}/>
             </div>
         </main>
     )

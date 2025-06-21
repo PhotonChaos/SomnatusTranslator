@@ -40,6 +40,8 @@ export default function() {
     return (
         <>
             <main>
+                <h1>Somnatus Alphabet Translator</h1>
+                <h4>COMMUNITY PROJECT - NOT AFFILIATED WITH FURALITY</h4>
                 <div className="output-container">
                     <input type="text" className="decoded-text" onChange={inputChanged} value={message}/>
                     <p className="encoded-text">{message}</p>
@@ -61,7 +63,7 @@ export default function() {
                 </div>
             </main>
             <footer>
-                Somnatus Translator by <b>Carbon</b> | Somnatus Community Font by <b>ParadoxPanda</b> | Somnatus language design by <b>Furality Creative Team </b>
+                <b>Somnatus Translator</b> by <a href="https://github.com/PhotonChaos">Carbon</a> | Somnatus symbol design by <a href="https://furality.org/">Furality Creative Team</a> | Somnatus Community Font by <a href="https://pandorapanther.carrd.co/">PandoraPanther</a>
             </footer>
         </>
     )
